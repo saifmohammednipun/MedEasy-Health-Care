@@ -78,8 +78,8 @@ public class AdminOperations extends JFrame implements ActionListener{
         }
         if(e.getSource() == button2){
             setVisible(false);
-            DoctorDetailsForAdmin doctorDetailsForAdmin = new DoctorDetailsForAdmin();
-            doctorDetailsForAdmin.setVisible(true);
+           DoctorDetailsEditForAdmin doctorDetailsEditForAdmin = new DoctorDetailsEditForAdmin();
+           doctorDetailsEditForAdmin.setVisible(true);
         }
         if(e.getSource() == button3){
             setVisible(false);
