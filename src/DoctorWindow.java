@@ -1,2 +1,4 @@
-public class DoctorWindow {
+import javax.swing.*;
+
+public class DoctorWindow extends JFrame {
 }

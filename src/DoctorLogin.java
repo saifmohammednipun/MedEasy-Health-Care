@@ -1,4 +1,5 @@
 
+import javax.print.Doc;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -11,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.io.FileWriter;
+import java.util.*;
 public class DoctorLogin extends JFrame implements ActionListener{
     private JLabel label1, label2;
     private JTextField textField1;
@@ -63,20 +65,62 @@ public class DoctorLogin extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == button1) {
-            String getDoctorID = textField1.getText();
-            String getDoctorPassword = passwordField1.getText();
-            String password = "admin";
+            String idDoctor = textField1.getText();
+            String passwordDoctor = passwordField1.getText();
 
-            if(password.equals(getDoctorPassword)) {
-                JOptionPane.showMessageDialog(null, "Doctor Login Successful.");
-                setVisible(true);
-                setVisible(false);
-                AdminOperations adminOperations = new AdminOperations();
-                adminOperations.setVisible(true);
-            }else{
-                JOptionPane.showMessageDialog(null, "Entered Wrong Password");
-                setVisible(true);
+            try{
+                File file = new File("DoctorDetails.txt");
+                if(!file.exists()) {
+                    file.createNewFile();
+                }
+
+                Scanner sc = new Scanner(file);
+                int number_of_line=0;
+                while(sc.hasNextLine())
+                {
+                    String s = sc.nextLine();
+                    number_of_line++;
+
+                }
+
+                Doctor[] arr1 = new Doctor[number_of_line];
+                sc = new Scanner(file);
+
+                int k = 0;
+                while(sc.hasNext())
+                {
+                    String id  = sc.next();
+                    String department = sc.next();
+                    String name =sc.next();
+                    String email = sc.next();
+                    String password = sc.next();
+
+                    arr1[k] = new Doctor(id, department,name, email, password);
+                    k++;
+                }
+                sc.close();
+
+                for(int j=0; j<number_of_line; j++ ) {
+
+                    if (arr1[j].getId().equals(idDoctor) && arr1[j].getPassword().equals(passwordDoctor)) {
+                        JOptionPane.showMessageDialog(null, "Doctor Login Successful.");
+                        setVisible(true);
+                        setVisible(false);
+                        DoctorWindow doctorWindow= new DoctorWindow();
+                        doctorWindow.setVisible(true);
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Invalid ID & Password");
+                        setVisible(true);
+                    }
+
+                }
+            }catch(IOException ae){
+                ae.printStackTrace();
+
             }
+
+
         }
         if(e.getSource() == button2){
             setVisible(false);

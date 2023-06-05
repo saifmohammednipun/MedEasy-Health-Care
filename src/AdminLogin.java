@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.io.FileWriter;
+import java.util.Scanner;
 
 
 public class AdminLogin extends JFrame implements ActionListener {
@@ -64,20 +65,56 @@ public class AdminLogin extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == button1) {
-            String getAdminID = textField1.getText();
-            String getAdminPassword = passwordField1.getText();
-            String password = "admin";
+            String usernameAdmin= textField1.getText();
+            String passwordAdmin = passwordField1.getText();
 
-            if(password.equals(getAdminPassword)) {
-                JOptionPane.showMessageDialog(null, "Admin Login Successful.");
-                setVisible(true);
-                setVisible(false);
-                AdminOperations adminOperations = new AdminOperations();
-                adminOperations.setVisible(true);
-            }else{
-                JOptionPane.showMessageDialog(null, "Entered Wrong Password");
-                setVisible(true);
+            try{
+                File file = new File("Admin.txt");
+               if(!file.exists()) {
+                   file.createNewFile();
+               }
+
+                Scanner sc = new Scanner(file);
+               int number_of_line=0;
+                while(sc.hasNextLine())
+                {
+                    String s = sc.nextLine();
+                    number_of_line++;
+
+                }
+
+                Admin[] arr = new Admin[number_of_line];
+                sc = new Scanner(file);
+
+                int k = 0;
+                while(sc.hasNext())
+                {
+                    String id = sc.next();
+                    String s = sc.next();
+                    arr[k] = new Admin(id, s);
+                    k++;
+                }
+                sc.close();
+
+                for(int j=0; j<number_of_line; j++ ) {
+
+                    if (arr[j].getUsername().equals(usernameAdmin) && arr[j].getPassword().equals(passwordAdmin)) {
+                        JOptionPane.showMessageDialog(null, "Admin Login Successful.");
+                        setVisible(true);
+                        setVisible(false);
+                        AdminOperations adminOperations = new AdminOperations();
+                        adminOperations.setVisible(true);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Invalid ID & Password");
+                        setVisible(true);
+                    }
+
+                }
+            }catch(IOException ae){
+                ae.printStackTrace();
             }
+
+
         }
         if(e.getSource() == button2){
             setVisible(false);

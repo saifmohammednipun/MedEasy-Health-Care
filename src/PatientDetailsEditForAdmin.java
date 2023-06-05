@@ -10,18 +10,18 @@ import java.io.*;
 import java.util.*;
 
 
-public class DoctorDetailsEditForAdmin extends JFrame implements ActionListener {
-    private JLabel label1, label2, label3, label4, label5, label6;
-    private JTextField textField1, textField2, textField3, textField4, textField5;
-    private JPasswordField passwordField1;
-    private JButton button1, button2, button3, button4, button5, button6, button7;
+public class PatientDetailsEditForAdmin extends JFrame implements ActionListener {
+    private JLabel label1, label2, label3, label4, label5, label6, label7;
+    private JTextField textField1, textField2, textField3, textField4, textField5, textField6 ;
+    private JButton button1, button2, button3, button4, button5, button6;
     private JTable table1;
     private DefaultTableModel model;
     private JScrollPane scrollPane;
-    private String[] columns = {"Doctor ID", "Department", "Doctor Name", "Email", "Password"};
-    private String[] rows = new String[5];
+    private String[] columns = {"Patient ID", "Patient Name", "Gender", "Age", "Disease", "Admit Status"};
 
-    public DoctorDetailsEditForAdmin() {
+    private String[] rows = new String[6];
+
+    public PatientDetailsEditForAdmin() {
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(0, 0, 600, 600);
@@ -30,27 +30,30 @@ public class DoctorDetailsEditForAdmin extends JFrame implements ActionListener 
         getContentPane().setBackground(Color.CYAN);
         setResizable(false);
 
-        label1 = new JLabel("Edit Doctor Details");
+        label1 = new JLabel("Edit Patients Details");
         Font font1 = new Font("Times New Roman", Font.BOLD, 25);
         label1.setFont(font1);
         label1.setBounds(180, 0, 400, 80);
         label1.setForeground(Color.BLUE);
         label1.setBackground(Color.WHITE);
 
-        label2 = new JLabel("Doctor ID: ");
+        label2 = new JLabel("Patient ID: ");
         label2.setBounds(50, 80, 100, 20);
 
-        label3 = new JLabel("Department: ");
+        label3 = new JLabel("Patient Name: ");
         label3.setBounds(50, 120, 100, 20);
 
-        label4 = new JLabel("Doctor Name: ");
+        label4 = new JLabel("Gender: ");
         label4.setBounds(50, 160, 100, 20);
 
-        label5 = new JLabel("Email: ");
+        label5 = new JLabel("Age: ");
         label5.setBounds(50, 200, 100, 20);
 
-        label6 = new JLabel("Password: ");
+        label6 = new JLabel("Disease: ");
         label6.setBounds(50, 240, 100, 20);
+
+        label7 = new JLabel(" Admit Status: ");
+        label7.setBounds(50, 280, 100, 20);
 
 
         textField1 = new JTextField();
@@ -68,7 +71,11 @@ public class DoctorDetailsEditForAdmin extends JFrame implements ActionListener 
         textField5 = new JTextField();
         textField5.setBounds(150, 240, 150, 20);
 
-        button1 = new JButton("Add Doctor");
+        textField6 = new JTextField();
+        textField6.setBounds(150, 280, 150, 20);
+
+
+        button1 = new JButton("Add Patient");
         button1.setBounds(400, 80, 100, 30);
         button1.setForeground(Color.BLACK);
         button1.setBackground(Color.WHITE);
@@ -102,9 +109,6 @@ public class DoctorDetailsEditForAdmin extends JFrame implements ActionListener 
         button6 = new JButton("Save");
         button6.setBounds(400, 520, 100, 20);
 
-        button7 = new JButton("View Details");
-        button7.setBounds(210, 520, 160, 20);
-
         table1 = new JTable();
         model = new DefaultTableModel();
         model.setColumnIdentifiers(columns);
@@ -114,23 +118,25 @@ public class DoctorDetailsEditForAdmin extends JFrame implements ActionListener 
         table1.setRowHeight(30);
 
         scrollPane = new JScrollPane(table1);
-        scrollPane.setBounds(50, 300, 500, 200);
+        scrollPane.setBounds(50, 320, 500, 180);
 
         table1.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent ae) {
                 int numberOfdRow = table1.getSelectedRow();
 
                 String id = model.getValueAt(numberOfdRow, 0).toString();
-                String department = model.getValueAt(numberOfdRow, 1).toString();
-                String name = model.getValueAt(numberOfdRow, 2).toString();
-                String email = model.getValueAt(numberOfdRow, 3).toString();
-                String password = model.getValueAt(numberOfdRow, 4).toString();
+                String name = model.getValueAt(numberOfdRow, 1).toString();
+                String gender = model.getValueAt(numberOfdRow, 2).toString();
+                String age = model.getValueAt(numberOfdRow, 3).toString();
+                String disease = model.getValueAt(numberOfdRow, 4).toString();
+                String admitStatus= model.getValueAt(numberOfdRow, 5).toString();
 
                 textField1.setText(id);
-                textField2.setText(department);
-                textField3.setText(name);
-                textField4.setText(email);
-                textField5.setText(password);
+                textField2.setText(name);
+                textField3.setText(gender);
+                textField4.setText(age);
+                textField5.setText(disease);
+                textField6.setText(admitStatus);
             }
 
         });
@@ -141,6 +147,7 @@ public class DoctorDetailsEditForAdmin extends JFrame implements ActionListener 
         add(label4);
         add(label5);
         add(label6);
+        add(label7);
 
 
         add(textField1);
@@ -148,6 +155,8 @@ public class DoctorDetailsEditForAdmin extends JFrame implements ActionListener 
         add(textField3);
         add(textField4);
         add(textField5);
+        add(textField6);
+
 
         add(button1);
         add(button2);
@@ -155,7 +164,6 @@ public class DoctorDetailsEditForAdmin extends JFrame implements ActionListener 
         add(button4);
         add(button5);
         add(button6);
-        add(button7);
 
         add(scrollPane);
 
@@ -165,39 +173,40 @@ public class DoctorDetailsEditForAdmin extends JFrame implements ActionListener 
         button4.addActionListener(this);
         button5.addActionListener(this);
         button6.addActionListener(this);
-        button7.addActionListener(this);
 
     }
 
-    public void actionPerformed(ActionEvent e) {
 
+    public void actionPerformed(ActionEvent e) {
         if (e.getSource() == button1) {
             rows[0]= textField1.getText();
             rows[1] = textField2.getText();
             rows[2] = textField3.getText();
             rows[3] = textField4.getText();
             rows[4] = textField5.getText();
+            rows[5] = textField5.getText();
 
             model.addRow(rows);
 
         }
 
-
         if(e.getSource() == button2){
             int numberOfRow = table1.getSelectedRow();
 
             String id = textField1.getText();
-            String department = textField2.getText();
-            String name = textField3.getText();
-            String email = textField4.getText();
-            String password = textField5.getText();
+            String name= textField2.getText();
+            String gender  = textField3.getText();
+            String age = textField4.getText();
+            String disease = textField5.getText();
+            String admitStatus =textField6.getText();
+
 
             model.setValueAt(id,numberOfRow, 0);
-            model.setValueAt(department, numberOfRow, 1);
-            model.setValueAt(name, numberOfRow, 2);
-            model.setValueAt(email,numberOfRow, 3);
-            model.setValueAt(password, numberOfRow, 4);
-
+            model.setValueAt(name, numberOfRow, 1);
+            model.setValueAt(gender, numberOfRow, 2);
+            model.setValueAt(age,numberOfRow, 3);
+            model.setValueAt(disease, numberOfRow, 4);
+            model.setValueAt(admitStatus, numberOfRow, 5);
 
         }
         if(e.getSource() == button3) {
@@ -210,7 +219,7 @@ public class DoctorDetailsEditForAdmin extends JFrame implements ActionListener 
             }
 
             try {
-                File inputFile = new File("DoctorDetails.txt");
+                File inputFile = new File("PatientsDetails.txt");
                 File tempFile = new File("temp.txt");
 
 
@@ -251,16 +260,17 @@ public class DoctorDetailsEditForAdmin extends JFrame implements ActionListener 
             textField3.setText("");
             textField4.setText("");
             textField5.setText("");
+            textField6.setText("");
         }
 
         if(e.getSource() == button5){
             setVisible(false);
-           AdminOperations adminOperations = new AdminOperations();
-           adminOperations.setVisible(true);
+            AdminOperations adminOperations = new AdminOperations();
+            adminOperations.setVisible(true);
         }
         if(e.getSource() == button6){
             try{
-                File f1 = new File("DoctorDetails.txt");
+                File f1 = new File("PatientsDetails.txt");
                 if(!f1.exists()){
                     f1.createNewFile();
                 }
@@ -270,7 +280,7 @@ public class DoctorDetailsEditForAdmin extends JFrame implements ActionListener 
                     for (int col = 0; col < model.getColumnCount(); col++) {
                         fw.write(model.getValueAt(row, col) + "\t");
                     }
-                   fw.write("\n");
+                    fw.write("\n");
                 }
                 fw.close();
                 JOptionPane.showMessageDialog(null, "Data Saved to files.");
@@ -279,13 +289,6 @@ public class DoctorDetailsEditForAdmin extends JFrame implements ActionListener 
                 ae.printStackTrace();
             }
         }
-        if (e.getSource() == button7) {
-            setVisible(false);
-           DoctorDetails doctorDetails = new DoctorDetails();
-           doctorDetails.setVisible(true);
-        }
-
-
 
     }
 }

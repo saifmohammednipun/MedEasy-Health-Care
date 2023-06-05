@@ -73,8 +73,8 @@ public class AdminOperations extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == button1) {
             setVisible(false);
-            AdminLogin adminLogin = new AdminLogin();
-            adminLogin.setVisible(true);
+           StaffDetailsEditForAdmin staffDetailsEditForAdmin = new StaffDetailsEditForAdmin();
+           staffDetailsEditForAdmin.setVisible(true);
         }
         if(e.getSource() == button2){
             setVisible(false);
@@ -83,8 +83,8 @@ public class AdminOperations extends JFrame implements ActionListener{
         }
         if(e.getSource() == button3){
             setVisible(false);
-            PharmacistLogin pharmacistLogin = new PharmacistLogin();
-            pharmacistLogin.setVisible(true);
+           PatientDetailsEditForAdmin patientDetailsEditForAdmin = new PatientDetailsEditForAdmin();
+           patientDetailsEditForAdmin.setVisible(true);
         }
     }
 }
