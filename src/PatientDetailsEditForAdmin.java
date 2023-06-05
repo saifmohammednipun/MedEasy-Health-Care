@@ -13,7 +13,7 @@ import java.util.*;
 public class PatientDetailsEditForAdmin extends JFrame implements ActionListener {
     private JLabel label1, label2, label3, label4, label5, label6, label7;
     private JTextField textField1, textField2, textField3, textField4, textField5, textField6 ;
-    private JButton button1, button2, button3, button4, button5, button6;
+    private JButton button1, button2, button3, button4, button5, button6, button7;
     private JTable table1;
     private DefaultTableModel model;
     private JScrollPane scrollPane;
@@ -109,6 +109,9 @@ public class PatientDetailsEditForAdmin extends JFrame implements ActionListener
         button6 = new JButton("Save");
         button6.setBounds(400, 520, 100, 20);
 
+        button7 = new JButton("View Details");
+        button7.setBounds(210, 520, 160, 20);
+
         table1 = new JTable();
         model = new DefaultTableModel();
         model.setColumnIdentifiers(columns);
@@ -164,6 +167,7 @@ public class PatientDetailsEditForAdmin extends JFrame implements ActionListener
         add(button4);
         add(button5);
         add(button6);
+        add(button7);
 
         add(scrollPane);
 
@@ -173,6 +177,8 @@ public class PatientDetailsEditForAdmin extends JFrame implements ActionListener
         button4.addActionListener(this);
         button5.addActionListener(this);
         button6.addActionListener(this);
+        button7.addActionListener(this);
+
 
     }
 
@@ -288,6 +294,11 @@ public class PatientDetailsEditForAdmin extends JFrame implements ActionListener
             }catch(IOException ae){
                 ae.printStackTrace();
             }
+        }
+        if (e.getSource() == button7) {
+            setVisible(false);
+           PatientDetails patientDetails = new PatientDetails();
+           patientDetails.setVisible(true);
         }
 
     }
