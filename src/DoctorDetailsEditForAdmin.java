@@ -283,6 +283,8 @@ public class DoctorDetailsEditForAdmin extends JFrame implements ActionListener 
             setVisible(false);
            DoctorDetails doctorDetails = new DoctorDetails();
            doctorDetails.setVisible(true);
+
+
         }
 
 
