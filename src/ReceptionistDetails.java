@@ -9,7 +9,7 @@ import java.io.*;
 import java.util.*;
 
 
-public class StaffDetails extends JFrame implements ActionListener {
+public class ReceptionistDetails extends JFrame implements ActionListener {
     private JLabel label1;
     private JTextField textField1;
     private JButton button1, button2;
@@ -20,9 +20,9 @@ public class StaffDetails extends JFrame implements ActionListener {
     private String[] columns = {"Staff ID", "Designation", "Staff Name", "Salary", "Contact"};
     private String[] rows = new String[5];
 
-    StaffDetails() {
+    ReceptionistDetails() {
 
-        super("Staff Details");
+        super("Receptionist Details");
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(0, 0, 600, 400);
@@ -60,7 +60,7 @@ public class StaffDetails extends JFrame implements ActionListener {
 
         try {
 
-            File file = new File("StaffDetails.txt");
+            File file = new File("ReceptionistDetails.txt");
             Scanner sc = new Scanner(file);
             int number_of_line = 0;
             while (sc.hasNextLine()) {
@@ -69,7 +69,7 @@ public class StaffDetails extends JFrame implements ActionListener {
 
             }
 
-            Staff[] arr1 = new Staff[number_of_line];
+            Receptionist[] arr1 = new Receptionist[number_of_line];
             sc = new Scanner(file);
 
             int k = 0;
@@ -78,21 +78,21 @@ public class StaffDetails extends JFrame implements ActionListener {
             String designation;
             String name ;
             String salary;
-            String contact ;
+            String password ;
 
             while (sc.hasNext()) {
 
                 id = sc.next();
-               designation = sc.next();
+                designation = sc.next();
                 name = sc.next();
                 salary = sc.next();
-                contact = sc.next();
+                password = sc.next();
 
                 rows[0]= id;
                 rows[1] = designation;
                 rows[2] = name;
                 rows[3] = salary;
-                rows[4] = contact;
+                rows[4] = password;
 
                 model.addRow(rows);
 
@@ -131,8 +131,8 @@ public class StaffDetails extends JFrame implements ActionListener {
 
         if(e.getSource() == button2){
             setVisible(false);
-           StaffDetailsEditForAdmin staffDetailsEditForAdmin = new StaffDetailsEditForAdmin();
-           staffDetailsEditForAdmin.setVisible(true);
+            ReceptionistDetailsEditForAdmin receptionistDetailsEditForAdmin = new ReceptionistDetailsEditForAdmin();
+            receptionistDetailsEditForAdmin.setVisible(true);
         }
     }
 }

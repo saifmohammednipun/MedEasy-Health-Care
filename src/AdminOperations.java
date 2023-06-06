@@ -14,7 +14,7 @@ public class AdminOperations extends JFrame implements ActionListener{
     private JLabel label2 = new JLabel("Text2");
     private JTextField textField1;
     private JPasswordField passwordField1;
-    private JButton button1,button2,button3;
+    private JButton button1,button2,button3, button4, button5;
 
     private ImageIcon imageIcon1;
     public AdminOperations(){
@@ -36,7 +36,7 @@ public class AdminOperations extends JFrame implements ActionListener{
         label2.setForeground(Color.BLUE);
         label2.setBackground(Color.WHITE);
 
-        button1 = new JButton("Employee Management");
+        button1 = new JButton("Staff Management");
         button1.setBounds(50, 100, 200, 50);
         button1.setForeground(Color.WHITE);
         button1.setBackground(Color.BLUE);
@@ -57,6 +57,23 @@ public class AdminOperations extends JFrame implements ActionListener{
         button3.setOpaque(true);
         button3.setBorderPainted(false);
 
+
+        button4 = new JButton("Receptionist Management");
+        button4.setBounds(300, 100, 200, 50);
+        button4.setForeground(Color.WHITE);
+        button4.setBackground(Color.BLUE);
+        button4.setOpaque(true);
+        button4.setBorderPainted(false);
+
+
+        button5 = new JButton("Pharmacist Management");
+        button5.setBounds(300, 200, 200, 50);
+        button5.setForeground(Color.WHITE);
+        button5.setBackground(Color.BLUE);
+        button5.setOpaque(true);
+        button5.setBorderPainted(false);
+
+
         add(label2);
         add(label1);
         pack();
@@ -64,10 +81,15 @@ public class AdminOperations extends JFrame implements ActionListener{
         label1.add(button1);
         label1.add(button2);
         label1.add(button3);
+        label1.add(button4);
+        label1.add(button5);
+
 
         button1.addActionListener(this);
         button2.addActionListener(this);
         button3.addActionListener(this);
+        button4.addActionListener(this);
+        button5.addActionListener(this);
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -85,6 +107,18 @@ public class AdminOperations extends JFrame implements ActionListener{
             setVisible(false);
            PatientDetailsEditForAdmin patientDetailsEditForAdmin = new PatientDetailsEditForAdmin();
            patientDetailsEditForAdmin.setVisible(true);
+        }
+
+        if(e.getSource() == button4){
+            setVisible(false);
+           ReceptionistDetailsEditForAdmin  receptionistDetailsEditForAdmin = new ReceptionistDetailsEditForAdmin();
+           receptionistDetailsEditForAdmin.setVisible(true);
+        }
+
+        if(e.getSource() == button5){
+            setVisible(false);
+            PharmacistDetailsEditForAdmin pharmacistDetailsEditForAdmin = new PharmacistDetailsEditForAdmin();
+            pharmacistDetailsEditForAdmin.setVisible(true);
         }
     }
 }

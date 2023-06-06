@@ -8,19 +8,18 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.*;
 
-
-public class StaffDetailsEditForAdmin extends JFrame implements ActionListener {
+public class ReceptionistDetailsEditForAdmin extends JFrame implements ActionListener {
     private JLabel label1, label2, label3, label4, label5, label6;
     private JTextField textField1, textField2, textField3, textField4, textField5;
     private JButton button1, button2, button3, button4, button5, button6,button7;
     private JTable table1;
     private DefaultTableModel model;
     private JScrollPane scrollPane;
-    private String[] columns = {"Staff ID", "Designation", "Staff Name", "Salary", "Contact"};
+    private String[] columns = {"Receptionist ID", "Designation", "Receptionist Name", "Salary", "Password"};
 
     private String[] rows = new String[5];
 
-    public StaffDetailsEditForAdmin() {
+    public ReceptionistDetailsEditForAdmin() {
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(0, 0, 600, 600);
@@ -29,26 +28,26 @@ public class StaffDetailsEditForAdmin extends JFrame implements ActionListener {
         getContentPane().setBackground(Color.CYAN);
         setResizable(false);
 
-        label1 = new JLabel("Edit Staff Details");
+        label1 = new JLabel("Edit Receptionist Details");
         Font font1 = new Font("Times New Roman", Font.BOLD, 25);
         label1.setFont(font1);
         label1.setBounds(180, 0, 400, 80);
         label1.setForeground(Color.BLUE);
         label1.setBackground(Color.WHITE);
 
-        label2 = new JLabel("Staff ID: ");
+        label2 = new JLabel("Receptionist  ID: ");
         label2.setBounds(50, 80, 100, 20);
 
         label3 = new JLabel("Designation: ");
         label3.setBounds(50, 120, 100, 20);
 
-        label4 = new JLabel("Staff Name: ");
+        label4 = new JLabel("Receptionist Name: ");
         label4.setBounds(50, 160, 100, 20);
 
         label5 = new JLabel("Salary:  ");
         label5.setBounds(50, 200, 100, 20);
 
-        label6 = new JLabel("Contact: ");
+        label6 = new JLabel("Password: ");
         label6.setBounds(50, 240, 100, 20);
 
 
@@ -67,7 +66,7 @@ public class StaffDetailsEditForAdmin extends JFrame implements ActionListener {
         textField5 = new JTextField();
         textField5.setBounds(150, 240, 150, 20);
 
-        button1 = new JButton("Add Staff");
+        button1 = new JButton("Add Receptionist");
         button1.setBounds(400, 80, 100, 30);
         button1.setForeground(Color.BLACK);
         button1.setBackground(Color.WHITE);
@@ -122,13 +121,13 @@ public class StaffDetailsEditForAdmin extends JFrame implements ActionListener {
                 String designation = model.getValueAt(numberOfdRow, 1).toString();
                 String name = model.getValueAt(numberOfdRow, 2).toString();
                 String salary = model.getValueAt(numberOfdRow, 3).toString();
-                String contact = model.getValueAt(numberOfdRow, 4).toString();
+                String password = model.getValueAt(numberOfdRow, 4).toString();
 
                 textField1.setText(id);
                 textField2.setText(designation);
                 textField3.setText(name);
                 textField4.setText(salary);
-                textField5.setText(contact);
+                textField5.setText(password);
             }
 
         });
@@ -209,7 +208,7 @@ public class StaffDetailsEditForAdmin extends JFrame implements ActionListener {
             }
 
             try {
-                File inputFile = new File("StaffDetails.txt");
+                File inputFile = new File("ReceptionistDetails.txt");
                 File tempFile = new File("temp.txt");
 
 
@@ -259,7 +258,7 @@ public class StaffDetailsEditForAdmin extends JFrame implements ActionListener {
         }
         if(e.getSource() == button6){
             try{
-                File f1 = new File("StaffDetails.txt");
+                File f1 = new File("ReceptionistDetails.txt");
                 if(!f1.exists()){
                     f1.createNewFile();
                 }
@@ -281,8 +280,8 @@ public class StaffDetailsEditForAdmin extends JFrame implements ActionListener {
 
         if (e.getSource() == button7) {
             setVisible(false);
-            StaffDetails staffDetails = new StaffDetails();
-            staffDetails.setVisible(true);
+            ReceptionistDetails receptionistDetails = new ReceptionistDetails();
+            receptionistDetails.setVisible(true);
         }
 
     }

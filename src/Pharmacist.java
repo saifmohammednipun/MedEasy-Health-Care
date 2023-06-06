@@ -1,61 +1,26 @@
-public class Pharmacist {
-    private String id;
-    private String pharmacyNo;
-    private String name;
-    private String salary;
-    private String  contact;
+public class Pharmacist extends Employee{
+    private String  password;
 
 
-    Pharmacist(String id, String designation , String name, String salary, String contact){
-        this.id = id;
-        this.pharmacyNo = pharmacyNo;
-        this.name = name;
-        this.salary = salary;
-        this.contact = contact;
-    }
-    public String getId() {
-        return id;
+    public Pharmacist(int id, String designation, String name, String contact){
+        super(id, name, designation);
+        this.password = password;
     }
 
-    public String getPharmacyNo() {
-        return pharmacyNo;
+    public String getPassword() {
+        return password;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getSalary() {
-        return salary;
-    }
-
-    public String getContact() {
-        return contact;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setPharmacyNo(String pharmacyNo) {
-        this.pharmacyNo = pharmacyNo;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setSalary(String salary) {
-        this.salary = salary;
-    }
-
-    public void setContact(String contact) {
-        this.contact = contact;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
-    public String toString() {
-        return id+"\t"+pharmacyNo+"\t"+name+"\t"+salary+"\t"+contact;
+    public int salary() {
+        return 0;
     }
 
+    public String toString() {
+        return super.toString()+"\t"+salary()+"\t"+password;
+    }
 }
