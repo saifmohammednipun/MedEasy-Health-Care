@@ -1,12 +1,13 @@
-public class Staff {
+public class Staff{
     private String id;
-    private String designation;
     private String name;
+
+    private String designation;
     private String salary;
     private String  contact;
 
 
-    Staff(String id, String designation , String name, String salary, String contact){
+    public Staff(String id, String designation , String name, String salary, String contact){
         this.id = id;
         this.designation = designation;
         this.name = name;
@@ -52,6 +53,7 @@ public class Staff {
     public void setContact(String contact) {
         this.contact = contact;
     }
+
 
     @Override
     public String toString() {

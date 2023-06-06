@@ -13,7 +13,7 @@ public class HomePage extends JFrame implements ActionListener {
     private JLabel label2 = new JLabel("Text2");
     private JLabel label3;
     private ImageIcon image1;
-    private JButton button1, button2, button3;
+    private JButton button1, button2, button3, button4;
 
     public HomePage() {
         super("Hospital Management System");
@@ -40,25 +40,32 @@ public class HomePage extends JFrame implements ActionListener {
         label3.setBounds(0, 0, 638, 400);
 
         button1 = new JButton("Admin");
-        button1.setBounds(50, 250, 150, 50);
+        button1.setBounds(40, 250, 120, 50);
         button1.setForeground(Color.WHITE);
         button1.setBackground(Color.BLUE);
         button1.setOpaque(true);
         button1.setBorderPainted(false);
 
         button2 = new JButton("Doctor");
-        button2.setBounds(250, 250, 150, 50);
+        button2.setBounds(190, 250, 120, 50);
         button2.setForeground(Color.WHITE);
         button2.setBackground(Color.BLUE);
         button2.setOpaque(true);
         button2.setBorderPainted(false);
 
         button3 = new JButton("Pharmacist");
-        button3.setBounds(450, 250, 150, 50);
+        button3.setBounds(340, 250, 120, 50);
         button3.setForeground(Color.WHITE);
         button3.setBackground(Color.BLUE);
         button3.setOpaque(true);
         button3.setBorderPainted(false);
+
+        button4 = new JButton("Pharmacist");
+        button4.setBounds(490, 250, 120, 50);
+        button4.setForeground(Color.WHITE);
+        button4.setBackground(Color.BLUE);
+        button4.setOpaque(true);
+        button4.setBorderPainted(false);
 
         add(label1);
         add(label2);
@@ -68,10 +75,13 @@ public class HomePage extends JFrame implements ActionListener {
         label3.add(button1);
         label3.add(button2);
         label3.add(button3);
+        label3.add(button4);
 
         button1.addActionListener(this);
         button2.addActionListener(this);
         button3.addActionListener(this);
+        button4.addActionListener(this);
+
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -89,6 +99,12 @@ public class HomePage extends JFrame implements ActionListener {
             setVisible(false);
             PharmacistLogin pharmacistLogin = new PharmacistLogin();
             pharmacistLogin.setVisible(true);
+        }
+
+        if(e.getSource() == button4){
+            setVisible(false);
+           ReceptionistLogin receptionistLogin = new ReceptionistLogin();
+           receptionistLogin.setVisible(true);
         }
     }
 }
