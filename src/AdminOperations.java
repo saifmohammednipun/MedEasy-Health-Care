@@ -14,7 +14,7 @@ public class AdminOperations extends JFrame implements ActionListener{
     private JLabel label2 = new JLabel("Text2");
     private JTextField textField1;
     private JPasswordField passwordField1;
-    private JButton button1,button2,button3, button4, button5;
+    private JButton button1,button2,button3, button4, button5, button6;
 
     private ImageIcon imageIcon1;
     public AdminOperations(){
@@ -73,6 +73,8 @@ public class AdminOperations extends JFrame implements ActionListener{
         button5.setOpaque(true);
         button5.setBorderPainted(false);
 
+        button6 = new JButton("Back");
+        button6.setBounds(450, 350, 80, 20);
 
         add(label2);
         add(label1);
@@ -83,6 +85,7 @@ public class AdminOperations extends JFrame implements ActionListener{
         label1.add(button3);
         label1.add(button4);
         label1.add(button5);
+        label1.add(button6);
 
 
         button1.addActionListener(this);
@@ -90,6 +93,7 @@ public class AdminOperations extends JFrame implements ActionListener{
         button3.addActionListener(this);
         button4.addActionListener(this);
         button5.addActionListener(this);
+        button6.addActionListener(this);
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -119,6 +123,12 @@ public class AdminOperations extends JFrame implements ActionListener{
             setVisible(false);
             PharmacistDetailsEditForAdmin pharmacistDetailsEditForAdmin = new PharmacistDetailsEditForAdmin();
             pharmacistDetailsEditForAdmin.setVisible(true);
+        }
+
+        if(e.getSource() == button6){
+            setVisible(false);
+            AdminLogin adminLogin = new AdminLogin();
+            adminLogin.setVisible(true);
         }
     }
 }

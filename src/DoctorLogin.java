@@ -17,7 +17,7 @@ public class DoctorLogin extends JFrame implements ActionListener{
     private JLabel label1, label2;
     private JTextField textField1;
     private JPasswordField passwordField1;
-    private JButton button1,button2;
+    private JButton button1,button2,button3;
     public DoctorLogin(){
         super("Doctor Login");
         setVisible(true);
@@ -49,6 +49,10 @@ public class DoctorLogin extends JFrame implements ActionListener{
         button2 = new JButton("HomePage");
         button2.setBounds(150,220,100,20);
 
+        button3 = new JButton("Set Password");
+        button3.setBounds(220,250,100,20);
+
+
 
         add(label1);
         add(label2);
@@ -56,9 +60,11 @@ public class DoctorLogin extends JFrame implements ActionListener{
         add(passwordField1);
         add(button1);
         add(button2);
+        add(button3);
 
         button1.addActionListener(this);
         button2.addActionListener(this);
+        button3.addActionListener(this);
 
 
     }
@@ -69,7 +75,7 @@ public class DoctorLogin extends JFrame implements ActionListener{
             String passwordDoctor = passwordField1.getText();
 
             try{
-                File file = new File("DoctorDetails.txt");
+                File file = new File("DoctorPassword.txt");
                 if(!file.exists()) {
                     file.createNewFile();
                 }
@@ -83,19 +89,17 @@ public class DoctorLogin extends JFrame implements ActionListener{
 
                 }
 
-                Doctor[] arr1 = new Doctor[number_of_line];
+                Doctor2[] arr1 = new Doctor2[number_of_line];
                 sc = new Scanner(file);
+
 
                 int k = 0;
                 while(sc.hasNext())
                 {
-                    String id  = sc.next();
-                    String department = sc.next();
-                    String name =sc.next();
-                    String email = sc.next();
-                    String password = sc.next();
+                   String id  = sc.next();
+                   String enterPassword = sc.next();
 
-                    arr1[k] = new Doctor(id, department,name, email, password);
+                   arr1[k] = new Doctor2(id,enterPassword);
                     k++;
                 }
                 sc.close();
@@ -132,6 +136,12 @@ public class DoctorLogin extends JFrame implements ActionListener{
             setVisible(false);
             HomePage home = new HomePage();
             home.setVisible(true);
+        }
+        if(e.getSource() == button3){
+            setVisible(false);
+            DoctorSetPassword doctorSetPassword = new DoctorSetPassword();
+            doctorSetPassword.setVisible(true);
+
         }
     }
 }

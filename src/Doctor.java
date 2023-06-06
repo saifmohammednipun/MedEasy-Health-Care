@@ -3,15 +3,15 @@ public class Doctor {
     private String department;
     private String name;
     private String email;
-    private String  password;
+    private String  workdays;
 
 
-    Doctor(String id, String department, String name, String email, String password){
+    Doctor(String id, String department, String name, String email, String workdays){
         this.id = id;
         this.department =department;
         this.name = name;
         this.email = email;
-        this.password = password;
+        this.workdays = workdays;
     }
     public String getId() {
         return id;
@@ -25,9 +25,11 @@ public class Doctor {
     public String getEmail() {
         return email;
     }
-    public String getPassword() {
-        return password;
+
+    public String getWorkdays() {
+        return workdays;
     }
+
     public void setId(String id) {
         this.id = id;
     }
@@ -40,11 +42,13 @@ public class Doctor {
     public void setEmail(String email) {
         this.email = email;
     }
-    public void setPassword(String password) {
-        this.password = password;
+
+    public void setWorkdays(String workdays) {
+        this.workdays = workdays;
     }
+
     @Override
     public String toString() {
-        return id+"\t"+department+"\t"+name+"\t"+email+"\t"+password;
+        return id+"\t"+department+"\t"+name+"\t"+email+"\t"+workdays;
     }
 }

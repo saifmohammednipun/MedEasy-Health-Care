@@ -101,10 +101,10 @@ public class PharmacistLogin extends JFrame implements ActionListener{
                 sc.close();
 
                 int flag = 0;
-
+                /*
                 for(int j=0; j<number_of_line; j++ ) {
                     flag++;
-                    if (arr1[j].getId().equals(idDoctor) && arr1[j].getPassword().equals(passwordDoctor)) {
+                    if (arr1[j].getId() == idDoctor && arr1[j].getPassword().equals(passwordDoctor)) {
                         JOptionPane.showMessageDialog(null, "Doctor Login Successful.");
                         setVisible(true);
                         setVisible(false);
@@ -119,6 +119,8 @@ public class PharmacistLogin extends JFrame implements ActionListener{
                     }
 
                 }
+
+                 */
             }catch(IOException ae){
                 ae.printStackTrace();
 

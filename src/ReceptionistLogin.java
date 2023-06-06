@@ -100,7 +100,7 @@ public class ReceptionistLogin extends JFrame implements ActionListener{
                 }
                 sc.close();
                 int flag=0;
-
+/*
                 for(int j=0; j<number_of_line; j++ ) {
                             flag++;
                     if (arr1[j].getId().equals(idDoctor) && arr1[j].getPassword().equals(passwordDoctor)) {
@@ -118,6 +118,8 @@ public class ReceptionistLogin extends JFrame implements ActionListener{
                     }
 
                 }
+
+ */
             }catch(IOException ae){
                 ae.printStackTrace();
 
