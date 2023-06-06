@@ -53,7 +53,7 @@ public class HomePage extends JFrame implements ActionListener {
         button2.setOpaque(true);
         button2.setBorderPainted(false);
 
-        button3 = new JButton("Pharmacist");
+        button3 = new JButton("Receptionist");
         button3.setBounds(340, 250, 120, 50);
         button3.setForeground(Color.WHITE);
         button3.setBackground(Color.BLUE);
@@ -97,14 +97,15 @@ public class HomePage extends JFrame implements ActionListener {
         }
         if(e.getSource() == button3){
             setVisible(false);
-            PharmacistLogin pharmacistLogin = new PharmacistLogin();
-            pharmacistLogin.setVisible(true);
+            ReceptionistLogin receptionistLogin = new ReceptionistLogin();
+            receptionistLogin.setVisible(true);
         }
 
         if(e.getSource() == button4){
             setVisible(false);
-           ReceptionistLogin receptionistLogin = new ReceptionistLogin();
-           receptionistLogin.setVisible(true);
+            PharmacistLogin pharmacistLogin = new PharmacistLogin();
+            pharmacistLogin.setVisible(true);
+
         }
     }
 }

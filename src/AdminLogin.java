@@ -96,20 +96,31 @@ public class AdminLogin extends JFrame implements ActionListener {
                 }
                 sc.close();
 
-                for(int j=0; j<number_of_line; j++ ) {
+                int flag=0;
 
-                    if (arr[j].getUsername().equals(usernameAdmin) && arr[j].getPassword().equals(passwordAdmin)) {
+                for(int j=0; j<number_of_line; j++ ) {
+                    flag++;
+
+                     if (arr[j].getUsername().equals(usernameAdmin) && arr[j].getPassword().equals(passwordAdmin)) {
                         JOptionPane.showMessageDialog(null, "Admin Login Successful.");
                         setVisible(true);
                         setVisible(false);
                         AdminOperations adminOperations = new AdminOperations();
                         adminOperations.setVisible(true);
-                    } else {
+                        break;
+
+                    }
+
+                    else if(flag==number_of_line){
+
                         JOptionPane.showMessageDialog(null, "Invalid ID & Password");
                         setVisible(true);
                     }
-
                 }
+
+
+
+
             }catch(IOException ae){
                 ae.printStackTrace();
             }

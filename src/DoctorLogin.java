@@ -99,19 +99,25 @@ public class DoctorLogin extends JFrame implements ActionListener{
                     k++;
                 }
                 sc.close();
+                int flag =0;
 
                 for(int j=0; j<number_of_line; j++ ) {
+                    flag++;
 
                     if (arr1[j].getId().equals(idDoctor) && arr1[j].getPassword().equals(passwordDoctor)) {
                         JOptionPane.showMessageDialog(null, "Doctor Login Successful.");
                         setVisible(true);
+
                         setVisible(false);
                         DoctorWindow doctorWindow= new DoctorWindow();
                         doctorWindow.setVisible(true);
+                        break;
 
-                    } else {
+                    }
+                    else if (flag==number_of_line){
                         JOptionPane.showMessageDialog(null, "Invalid ID & Password");
                         setVisible(true);
+
                     }
 
                 }
