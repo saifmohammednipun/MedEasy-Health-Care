@@ -1,18 +1,27 @@
 public class Receptionist extends Employee{
-    private String  password;
+    private String salary;
+    private String  contact;
 
-
-    public Receptionist(int id, String designation, String name, String contact){
+    public Receptionist(String id, String designation, String name, String salary,String contact){
         super(id, name, designation);
-        this.password = password;
+        this.salary=salary;
+        this.contact = contact;
     }
 
-    public String getPassword() {
-        return password;
+    public String getContact() {
+        return contact;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public String getSalary() {
+        return salary;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+
+    public void setSalary(String salary) {
+        this.salary = salary;
     }
 
     @Override
@@ -21,6 +30,6 @@ public class Receptionist extends Employee{
     }
 
     public String toString() {
-        return super.toString()+"\t"+salary()+"\t"+password;
+        return super.toString()+"\t"+salary+"\t"+contact;
     }
 }

@@ -1,5 +1,4 @@
 
-import javax.print.Doc;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -17,7 +16,7 @@ public class ReceptionistLogin extends JFrame implements ActionListener{
     private JLabel label1, label2;
     private JTextField textField1;
     private JPasswordField passwordField1;
-    private JButton button1,button2;
+    private JButton button1,button2,button3;
     public ReceptionistLogin(){
         super("Receptionist Login");
         setVisible(true);
@@ -49,6 +48,8 @@ public class ReceptionistLogin extends JFrame implements ActionListener{
         button2 = new JButton("HomePage");
         button2.setBounds(150,220,100,20);
 
+        button3 = new JButton("Set Password");
+        button3.setBounds(220,260,150,20);
 
         add(label1);
         add(label2);
@@ -56,20 +57,21 @@ public class ReceptionistLogin extends JFrame implements ActionListener{
         add(passwordField1);
         add(button1);
         add(button2);
+        add(button3);
 
         button1.addActionListener(this);
         button2.addActionListener(this);
+        button3.addActionListener(this);
 
 
     }
     public void actionPerformed(ActionEvent e) {
-
         if (e.getSource() == button1) {
-            String idDoctor = textField1.getText();
-            String passwordDoctor = passwordField1.getText();
+            String idReception = textField1.getText();
+            String passwordReception = passwordField1.getText();
 
             try{
-                File file = new File("DoctorDetails.txt");
+                File file = new File("ReceptionistPassword.txt");
                 if(!file.exists()) {
                     file.createNewFile();
                 }
@@ -83,43 +85,43 @@ public class ReceptionistLogin extends JFrame implements ActionListener{
 
                 }
 
-                Doctor[] arr1 = new Doctor[number_of_line];
+                Receptionist2[] arr1 = new Receptionist2[number_of_line];
                 sc = new Scanner(file);
+
 
                 int k = 0;
                 while(sc.hasNext())
                 {
                     String id  = sc.next();
-                    String department = sc.next();
-                    String name =sc.next();
-                    String email = sc.next();
-                    String password = sc.next();
+                    String email =sc.next();
+                    String enterPassword = sc.next();
+                    String confirmPassword =sc.next();
 
-                    arr1[k] = new Doctor(id, department,name, email, password);
+                    arr1[k] = new Receptionist2(id,enterPassword);
                     k++;
                 }
                 sc.close();
-                int flag=0;
-/*
+                int flag =0;
+
                 for(int j=0; j<number_of_line; j++ ) {
-                            flag++;
-                    if (arr1[j].getId().equals(idDoctor) && arr1[j].getPassword().equals(passwordDoctor)) {
+                    flag++;
 
-                        JOptionPane.showMessageDialog(null, "Doctor Login Successful.");
+                    if (arr1[j].getId().equals(idReception) && arr1[j].getPassword().equals(passwordReception)) {
+                        JOptionPane.showMessageDialog(null, "Receptionist Login Successful.");
                         setVisible(true);
-                        setVisible(false);
-                        DoctorWindow doctorWindow= new DoctorWindow();
-                        doctorWindow.setVisible(true);
-                        break;
 
-                    } else if(flag==number_of_line){
+                        setVisible(false);
+                        ReceptionistWindow receptionistWindow = new ReceptionistWindow();
+                        receptionistWindow.setVisible(true);
+
+                    }
+                    else if (flag==number_of_line){
                         JOptionPane.showMessageDialog(null, "Invalid ID & Password");
                         setVisible(true);
+
                     }
 
                 }
-
- */
             }catch(IOException ae){
                 ae.printStackTrace();
 
@@ -131,6 +133,12 @@ public class ReceptionistLogin extends JFrame implements ActionListener{
             setVisible(false);
             HomePage home = new HomePage();
             home.setVisible(true);
+        }
+
+        if(e.getSource() == button3){
+            setVisible(false);
+            ReceptionistSetPassword receptionistSetPassword = new ReceptionistSetPassword();
+            receptionistSetPassword.setVisible(true);
         }
     }
 }

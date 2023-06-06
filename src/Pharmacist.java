@@ -2,7 +2,7 @@ public class Pharmacist extends Employee{
     private String  password;
 
 
-    public Pharmacist(int id, String designation, String name, String contact){
+    public Pharmacist(String id, String designation, String name, String contact){
         super(id, name, designation);
         this.password = password;
     }

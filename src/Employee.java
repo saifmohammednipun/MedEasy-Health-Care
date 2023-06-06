@@ -1,15 +1,15 @@
 public abstract class Employee {
-    private int id;
+    private String id;
     private String name;
     private String designation;
 
-    Employee(int id, String name, String designation){
+    Employee(String id, String name, String designation){
         this.id = id;
         this.name = name;
         this.designation = designation;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -21,7 +21,7 @@ public abstract class Employee {
         return designation;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

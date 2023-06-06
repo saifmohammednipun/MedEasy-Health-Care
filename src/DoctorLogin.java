@@ -1,5 +1,4 @@
 
-import javax.print.Doc;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -50,7 +49,7 @@ public class DoctorLogin extends JFrame implements ActionListener{
         button2.setBounds(150,220,100,20);
 
         button3 = new JButton("Set Password");
-        button3.setBounds(220,250,100,20);
+        button3.setBounds(220,250,150,20);
 
 
 
@@ -97,10 +96,12 @@ public class DoctorLogin extends JFrame implements ActionListener{
                 while(sc.hasNext())
                 {
                    String id  = sc.next();
+                   String email =sc.next();
                    String enterPassword = sc.next();
+                   String confirmPassword= sc.next();
 
                    arr1[k] = new Doctor2(id,enterPassword);
-                    k++;
+                   k++;
                 }
                 sc.close();
                 int flag =0;
@@ -115,7 +116,7 @@ public class DoctorLogin extends JFrame implements ActionListener{
                         setVisible(false);
                         DoctorWindow doctorWindow= new DoctorWindow();
                         doctorWindow.setVisible(true);
-                        break;
+
 
                     }
                     else if (flag==number_of_line){

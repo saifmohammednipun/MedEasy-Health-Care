@@ -1,7 +1,5 @@
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import java.awt.Font;
@@ -12,8 +10,6 @@ import java.awt.event.ActionListener;
 public class ReceptionistWindow extends JFrame implements ActionListener{
     private JLabel label1;
     private JLabel label2 = new JLabel("Text2");
-    private JTextField textField1;
-    private JPasswordField passwordField1;
     private JButton button1,button2,button3;
 
     private ImageIcon imageIcon1;
@@ -25,7 +21,7 @@ public class ReceptionistWindow extends JFrame implements ActionListener{
         setLocationRelativeTo(null);
         setResizable(false);
 
-        imageIcon1 = new ImageIcon("ReceptionistWindow.jpg");
+        imageIcon1 = new ImageIcon("Receptionist.jpg");
         label1 = new JLabel(imageIcon1);
         label1.setBounds(0, 0, 600, 400);
 

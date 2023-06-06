@@ -3,7 +3,7 @@ public class Staff extends Employee{
     private String  contact;
 
 
-    public Staff(int id, String designation, String name, String contact){
+    public Staff(String id, String designation, String name, String contact){
         super(id, name, designation);
         this.contact = contact;
     }
