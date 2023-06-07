@@ -60,7 +60,7 @@ public class HomePage extends JFrame implements ActionListener {
         button3.setOpaque(true);
         button3.setBorderPainted(false);
 
-        button4 = new JButton("Pharmacist");
+        button4 = new JButton("Patient");
         button4.setBounds(490, 250, 120, 50);
         button4.setForeground(Color.WHITE);
         button4.setBackground(Color.BLUE);
@@ -103,8 +103,8 @@ public class HomePage extends JFrame implements ActionListener {
 
         if(e.getSource() == button4){
             setVisible(false);
-            PharmacistLogin pharmacistLogin = new PharmacistLogin();
-            pharmacistLogin.setVisible(true);
+            PatientLogin patientLogin = new PatientLogin();
+            patientLogin.setVisible(true);
 
         }
     }
