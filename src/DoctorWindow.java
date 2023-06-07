@@ -50,7 +50,7 @@ public class DoctorWindow extends JFrame implements ActionListener{
         button2.setOpaque(true);
         button2.setBorderPainted(false);
 
-        button3 = new JButton("Medicine Details");
+        button3 = new JButton("Appintment Details");
         button3.setBounds(50, 300, 200, 50);
         button3.setForeground(Color.WHITE);
         button3.setBackground(Color.BLUE);
@@ -84,13 +84,14 @@ public class DoctorWindow extends JFrame implements ActionListener{
         }
         if(e.getSource() == button2){
             setVisible(false);
-            PatientDetailsEditForAdmin patientDetailsEditForAdmin = new PatientDetailsEditForAdmin();
-            patientDetailsEditForAdmin.setVisible(true);
+            PatientDetails patientDetails = new PatientDetails();
+            patientDetails.setVisible(true);
         }
         if(e.getSource() == button3){
             setVisible(false);
-            PatientDetailsEditForAdmin patientDetailsEditForAdmin = new PatientDetailsEditForAdmin();
-            patientDetailsEditForAdmin.setVisible(true);
+            AppointmentDetails appointmentDetails = new AppointmentDetails();
+            appointmentDetails.setVisible(true);
+
         }
         if(e.getSource() == button4){
             setVisible(false);

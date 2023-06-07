@@ -14,7 +14,7 @@ public class AdminOperations extends JFrame implements ActionListener{
     private JLabel label2 = new JLabel("Text2");
     private JTextField textField1;
     private JPasswordField passwordField1;
-    private JButton button1,button2,button3, button4, button5, button6;
+    private JButton button1,button2,button3, button4, button5, button6,button7;
 
     private ImageIcon imageIcon1;
     public AdminOperations(){
@@ -67,14 +67,22 @@ public class AdminOperations extends JFrame implements ActionListener{
 
 
         button5 = new JButton("Pharmacist Management");
-        button5.setBounds(300, 200, 200, 50);
+        button5.setBounds(300, 300, 200, 50);
         button5.setForeground(Color.WHITE);
         button5.setBackground(Color.BLUE);
         button5.setOpaque(true);
         button5.setBorderPainted(false);
 
+
+        button7 = new JButton("Doctor Appointment");
+        button7.setBounds(300, 200, 200, 50);
+        button7.setForeground(Color.WHITE);
+        button7.setBackground(Color.BLUE);
+        button7.setOpaque(true);
+        button7.setBorderPainted(false);
+
         button6 = new JButton("Back");
-        button6.setBounds(450, 350, 80, 20);
+        button6.setBounds(450, 360, 80, 20);
 
         add(label2);
         add(label1);
@@ -86,6 +94,7 @@ public class AdminOperations extends JFrame implements ActionListener{
         label1.add(button4);
         label1.add(button5);
         label1.add(button6);
+        label1.add(button7);
 
 
         button1.addActionListener(this);
@@ -94,6 +103,7 @@ public class AdminOperations extends JFrame implements ActionListener{
         button4.addActionListener(this);
         button5.addActionListener(this);
         button6.addActionListener(this);
+        button7.addActionListener(this);
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -130,5 +140,11 @@ public class AdminOperations extends JFrame implements ActionListener{
             AdminLogin adminLogin = new AdminLogin();
             adminLogin.setVisible(true);
         }
+        if(e.getSource() == button7){
+            setVisible(false);
+            BookDoctorsAppointment bookDoctorsAppointment = new BookDoctorsAppointment();
+            bookDoctorsAppointment.setVisible(true);
+        }
+
     }
 }

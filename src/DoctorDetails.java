@@ -134,8 +134,9 @@ public class DoctorDetails extends JFrame implements ActionListener {
         }
 
         if(e.getSource() == button2){
-            DoctorDetailsEditForAdmin doctorDetailsEditForAdmin = new DoctorDetailsEditForAdmin();
-            doctorDetailsEditForAdmin.setVisible(true);
+            setVisible(false);
+          HomePage homePage = new HomePage();
+          homePage.setVisible(true);
         }
     }
 }

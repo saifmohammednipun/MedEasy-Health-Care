@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public class PatientDetails extends JFrame implements ActionListener {
+public class AppointmentDetails extends JFrame implements ActionListener {
     private JLabel label1;
     private JTextField textField1;
     private JButton button1, button2;
@@ -21,13 +21,12 @@ public class PatientDetails extends JFrame implements ActionListener {
 
     private JScrollPane scrollPane;
     private JTable table1;
-    private String[] columns = {"Patient ID", "Patient Name", "Gender", "Age", "Disease", "Admit Status"};
+    private String[] columns = {"Patient Name", "Patient Contact", "Specialist", "Doctor Name", "Slot"};
+    private String[] rows = new String[5];
 
-    private String[] rows = new String[6];
+    AppointmentDetails() {
 
-    PatientDetails() {
-
-        super("Patient Details");
+        super("Appointment Details");
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(0, 0, 600, 400);
@@ -65,7 +64,7 @@ public class PatientDetails extends JFrame implements ActionListener {
 
         try {
 
-            File file = new File("PatientsDetails.txt");
+            File file = new File("DoctorAppointmentDetails.txt");
             Scanner sc = new Scanner(file);
             int number_of_line = 0;
             while (sc.hasNextLine()) {
@@ -74,33 +73,30 @@ public class PatientDetails extends JFrame implements ActionListener {
 
             }
 
-            Patient[] arr1 = new Patient[number_of_line];
+            Appointment[] arr1 = new Appointment[number_of_line];
             sc = new Scanner(file);
 
             int k = 0;
 
-            String id ;
-            String name ;
-            String gender;
-            String age ;
-            String disease;
-            String admitStatus;
+            String name1;
+            String contact;
+            String specialist;
+            String name2;
+            String slot;
 
             while (sc.hasNext()) {
 
-                id = sc.next();
-                name = sc.next();
-                gender = sc.next();
-                age = sc.next();
-                disease = sc.next();
-                admitStatus=sc.next();
+                name1 = sc.next();
+                contact = sc.next();
+                specialist = sc.next();
+                name2 = sc.next();
+                slot = sc.next();
 
-                rows[0]= id;
-                rows[1] = name;
-                rows[2] = gender;
-                rows[3] = age;
-                rows[4] = disease;
-                rows[5] = admitStatus;
+                rows[0]= name1;
+                rows[1] = contact;
+                rows[2] = specialist;
+                rows[3] = name2;
+                rows[4] = slot;
 
                 model.addRow(rows);
 
@@ -138,9 +134,8 @@ public class PatientDetails extends JFrame implements ActionListener {
         }
 
         if(e.getSource() == button2){
-            setVisible(false);
-           HomePage homePage = new HomePage();
-           homePage.setVisible(true);
+          HomePage homePage = new HomePage();
+          homePage.setVisible(true);
         }
     }
 }
