@@ -18,7 +18,7 @@ public class DoctorDetailsEditForAdmin extends JFrame implements ActionListener 
     private JTable table1;
     private DefaultTableModel model;
     private JScrollPane scrollPane;
-    private String[] columns = {"Doctor ID", "Department", "Doctor Name", "Email", "Password"};
+    private String[] columns = {"Doctor ID", "Department", "Doctor Name", "Email", "Visiting Hours"};
     private String[] rows = new String[5];
 
     public DoctorDetailsEditForAdmin() {
@@ -49,7 +49,7 @@ public class DoctorDetailsEditForAdmin extends JFrame implements ActionListener 
         label5 = new JLabel("Email: ");
         label5.setBounds(50, 200, 100, 20);
 
-        label6 = new JLabel("Password: ");
+        label6 = new JLabel("Visiting Hour ");
         label6.setBounds(50, 240, 100, 20);
 
 

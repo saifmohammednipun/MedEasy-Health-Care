@@ -10,7 +10,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import java.io.FileWriter;
 import java.util.*;
 public class DoctorLogin extends JFrame implements ActionListener{
     private JLabel label1, label2;
@@ -49,7 +48,7 @@ public class DoctorLogin extends JFrame implements ActionListener{
         button2.setBounds(150,220,100,20);
 
         button3 = new JButton("Set Password");
-        button3.setBounds(220,250,150,20);
+        button3.setBounds(220,270,150,20);
 
 
 
@@ -88,7 +87,7 @@ public class DoctorLogin extends JFrame implements ActionListener{
 
                 }
 
-                Doctor2[] arr1 = new Doctor2[number_of_line];
+                Login[] arr1 = new Login[number_of_line];
                 sc = new Scanner(file);
 
 
@@ -100,7 +99,7 @@ public class DoctorLogin extends JFrame implements ActionListener{
                    String enterPassword = sc.next();
                    String confirmPassword= sc.next();
 
-                   arr1[k] = new Doctor2(id,enterPassword);
+                   arr1[k] = new Login(id,enterPassword);
                    k++;
                 }
                 sc.close();

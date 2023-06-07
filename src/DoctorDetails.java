@@ -21,7 +21,7 @@ public class DoctorDetails extends JFrame implements ActionListener {
 
     private JScrollPane scrollPane;
     private JTable table1;
-    private String[] columns = {"Doctor ID", "Department", "Doctor Name", "Email", "Password"};
+    private String[] columns = {"Doctor ID", "Department", "Doctor Name", "Email", "Visiting Hours"};
     private String[] rows = new String[5];
 
     DoctorDetails() {

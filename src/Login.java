@@ -1,8 +1,10 @@
-public class Pharmacist2 {
+public class Login {
     private String id;
+
+
     private String password;
 
-    Pharmacist2(String id,String password){
+    Login(String id, String password){
         this.id = id;
         this.password=password;
     }
@@ -30,5 +32,3 @@ public class Pharmacist2 {
         return id+"\t"+password;
     }
 }
-
-

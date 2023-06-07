@@ -25,7 +25,7 @@ public class PatientWindow extends JFrame implements ActionListener{
         label1 = new JLabel(imageIcon1);
         label1.setBounds(0, 0, 600, 400);
 
-        label2.setText("PATIENT");
+        label2.setText("PATIENT WINDOW");
         Font font1 = new Font("Times New Roman", Font.BOLD, 25);
         label2.setFont(font1);
         label2.setBounds(180, 0, 400, 80);
@@ -46,6 +46,9 @@ public class PatientWindow extends JFrame implements ActionListener{
         button2.setOpaque(true);
         button2.setBorderPainted(false);
 
+        button3 = new JButton("Back");
+        button3.setBounds(50,350,100,20);
+
 
         add(label2);
         add(label1);
@@ -53,9 +56,11 @@ public class PatientWindow extends JFrame implements ActionListener{
 
         label1.add(button1);
         label1.add(button2);
+        label1.add(button3);
 
         button1.addActionListener(this);
         button2.addActionListener(this);
+        button3.addActionListener(this);
 
     }
 
@@ -69,6 +74,12 @@ public class PatientWindow extends JFrame implements ActionListener{
             setVisible(false);
             AppointmentDetails appointmentDetails = new AppointmentDetails();
             appointmentDetails.setVisible(true);
+        }
+
+        if(e.getSource() == button3){
+            setVisible(false);
+            PatientLogin patientLogin = new PatientLogin();
+            patientLogin.setVisible(true);
         }
     }
 }

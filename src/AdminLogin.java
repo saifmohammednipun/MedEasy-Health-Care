@@ -83,7 +83,7 @@ public class AdminLogin extends JFrame implements ActionListener {
 
                 }
 
-                Admin[] arr = new Admin[number_of_line];
+                Login[] arr = new Login[number_of_line];
                 sc = new Scanner(file);
 
                 int k = 0;
@@ -91,7 +91,7 @@ public class AdminLogin extends JFrame implements ActionListener {
                 {
                     String id = sc.next();
                     String s = sc.next();
-                    arr[k] = new Admin(id, s);
+                    arr[k] = new Login(id, s);
                     k++;
                 }
                 sc.close();
@@ -101,7 +101,7 @@ public class AdminLogin extends JFrame implements ActionListener {
                 for(int j=0; j<number_of_line; j++ ) {
                     flag++;
 
-                     if (arr[j].getUsername().equals(usernameAdmin) && arr[j].getPassword().equals(passwordAdmin)) {
+                     if (arr[j].getId().equals(usernameAdmin) && arr[j].getPassword().equals(passwordAdmin)) {
                         JOptionPane.showMessageDialog(null, "Admin Login Successful.");
                         setVisible(true);
                         setVisible(false);

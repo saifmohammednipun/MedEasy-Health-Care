@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 public class ReceptionistWindow extends JFrame implements ActionListener{
     private JLabel label1;
     private JLabel label2 = new JLabel("Text2");
-    private JButton button1,button2,button3;
+    private JButton button1,button2,button3,button4;
 
     private ImageIcon imageIcon1;
     public ReceptionistWindow(){
@@ -53,6 +53,9 @@ public class ReceptionistWindow extends JFrame implements ActionListener{
         button3.setOpaque(true);
         button3.setBorderPainted(false);
 
+        button4 = new JButton("Back");
+        button4.setBounds(50,350,100,20);
+
         add(label2);
         add(label1);
         pack();
@@ -60,10 +63,13 @@ public class ReceptionistWindow extends JFrame implements ActionListener{
         label1.add(button1);
         label1.add(button2);
         label1.add(button3);
+        label1.add(button4);
+
 
         button1.addActionListener(this);
         button2.addActionListener(this);
         button3.addActionListener(this);
+        button4.addActionListener(this);
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -81,6 +87,11 @@ public class ReceptionistWindow extends JFrame implements ActionListener{
             setVisible(false);
            BookDoctorsAppointment bookDoctorsAppointment = new BookDoctorsAppointment();
            bookDoctorsAppointment.setVisible(true);
+        }
+        if(e.getSource() == button4){
+            setVisible(false);
+           ReceptionistLogin receptionistLogin = new ReceptionistLogin();
+           receptionistLogin.setVisible(true);
         }
     }
 }

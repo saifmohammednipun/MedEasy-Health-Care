@@ -49,7 +49,7 @@ public class PatientLogin extends JFrame implements ActionListener{
         button2.setBounds(150,220,100,20);
 
         button3 = new JButton("Set Password");
-        button3.setBounds(220,260,150,20);
+        button3.setBounds(220,270,150,20);
 
         add(label1);
         add(label2);
@@ -85,7 +85,7 @@ public class PatientLogin extends JFrame implements ActionListener{
 
                 }
 
-                Pharmacist2[] arr1 = new Pharmacist2[number_of_line];
+                Login[] arr1 = new Login[number_of_line];
                 sc = new Scanner(file);
 
 
@@ -97,7 +97,7 @@ public class PatientLogin extends JFrame implements ActionListener{
                     String enterPassword = sc.next();
                     String confirmPassword =sc.next();
 
-                    arr1[k] = new Pharmacist2(id,enterPassword);
+                    arr1[k] = new Login(id,enterPassword);
                     k++;
                 }
                 sc.close();

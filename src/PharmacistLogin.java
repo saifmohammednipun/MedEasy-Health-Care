@@ -85,7 +85,7 @@ public class PharmacistLogin extends JFrame implements ActionListener{
 
                 }
 
-                Pharmacist2[] arr1 = new Pharmacist2[number_of_line];
+                Login[] arr1 = new Login[number_of_line];
                 sc = new Scanner(file);
 
 
@@ -97,7 +97,7 @@ public class PharmacistLogin extends JFrame implements ActionListener{
                     String enterPassword = sc.next();
                     String confirmPassword =sc.next();
 
-                    arr1[k] = new Pharmacist2(id,enterPassword);
+                    arr1[k] = new Login(id,enterPassword);
                     k++;
                 }
                 sc.close();

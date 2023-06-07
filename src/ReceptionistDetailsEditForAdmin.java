@@ -35,19 +35,19 @@ public class ReceptionistDetailsEditForAdmin extends JFrame implements ActionLis
         label1.setForeground(Color.BLUE);
         label1.setBackground(Color.WHITE);
 
-        label2 = new JLabel("Receptionist  ID: ");
+        label2 = new JLabel("Recept. ID: ");
         label2.setBounds(50, 80, 100, 20);
 
         label3 = new JLabel("Designation: ");
         label3.setBounds(50, 120, 100, 20);
 
-        label4 = new JLabel("Receptionist Name: ");
+        label4 = new JLabel("Recept. Name: ");
         label4.setBounds(50, 160, 100, 20);
 
-        label5 = new JLabel("Salary:  ");
+        label5 = new JLabel("Salary: ");
         label5.setBounds(50, 200, 100, 20);
 
-        label6 = new JLabel("Password: ");
+        label6 = new JLabel("Contact: ");
         label6.setBounds(50, 240, 100, 20);
 
 
